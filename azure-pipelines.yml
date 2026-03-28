@@ -1,0 +1,72 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  TAG: $(Build.BuildId)
+
+stages:
+  - stage: BuildFrontend
+    displayName: Build Frontend image
+    jobs:
+      - job: Build
+        steps:
+        - checkout: self
+
+        - task: Docker@2
+          displayName: Login to DockerHub
+          inputs:
+            command: login
+            containerRegistry: dockerhub-service-connection
+
+        - task: Docker@2
+          displayName: Build Image
+          inputs:
+            command: build
+            repository: akashsheoarn/frontend
+            dockerfile: frontend/Dockerfile
+            tags: |
+              $(TAG)
+              latest
+
+        - task: Docker@2
+          displayName: Push Image
+          inputs:
+            command: push
+            repository: akashsheoarn/frontend
+            tags: |
+              $(TAG)
+              latest
+
+  - stage: BuildBackend
+    displayName: Build Backend image
+    jobs:
+      - job: Build
+        steps:
+        - checkout: self
+
+        - task: Docker@2
+          displayName: Login to DockerHub
+          inputs:
+            command: login
+            containerRegistry: dockerhub-service-connection
+
+        - task: Docker@2
+          displayName: Build Image
+          inputs:
+            command: build
+            repository: akashsheoarn/backend
+            dockerfile: backend/Dockerfile
+            tags: |
+              $(TAG)
+              latest
+
+        - task: Docker@2
+          displayName: Push Image
+          inputs:
+            command: push
+            repository: akashsheoarn/backend
+            tags: |
+              $(TAG)
+              latest
