@@ -62,26 +62,22 @@ function App() {
           <div className="container">
             <div className="hero-content">
               <div className="hero-text">
-                <h1 className="hero-title">Three-Tier Application</h1>
-                <p className="hero-subtitle">Running on AWS EKS with MongoDB</p>
-                <p className="hero-subtitle">Harish N Shetty</p>
+                <h1 className="hero-title">Ecom Application</h1>
+                <p className="hero-subtitle">Running on AWS EKS</p>
+                <p className="hero-subtitle">Akash Sheoran</p>
               </div>
               <div className="hero-social">
                 <h3>Stay Connected</h3>
                 <div className="social-links">
-                  <a href="https://harishnshetty.github.io/" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a href="http://akashsheoran.in" target="_blank" rel="noopener noreferrer" className="social-link">
                     <span className="social-icon">🌐</span>
                     <span>Website</span>
                   </a>
-                  <a href="https://www.youtube.com/@devopsHarishNShetty" target="_blank" rel="noopener noreferrer" className="social-link">
-                    <span className="social-icon">▶️</span>
-                    <span>Youtube </span>
-                  </a>
-                  <a href="https://www.linkedin.com/in/harishnshetty" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a href="https://www.linkedin.com/in/akash-sheoran/" target="_blank" rel="noopener noreferrer" className="social-link">
                     <span className="social-icon">💼</span>
                     <span>LinkedIn</span>
                   </a>
-                  <a href="https://github.com/harishnshetty" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a href="https://github.com/akash66sheoran" target="_blank" rel="noopener noreferrer" className="social-link">
                     <span className="social-icon">🐱</span>
                     <span>GitHub</span>
                   </a>
@@ -90,9 +86,9 @@ function App() {
             </div>
           </div>
         </div>
-        <img 
-          src="/img/img.jpg" 
-          alt="Application Hero" 
+        <img
+          src="/img/img.png"
+          alt="Application Hero"
           className="hero-image"
         />
       </header>
@@ -102,7 +98,7 @@ function App() {
         <div className="container">
           <ul>
             <li>
-              <button 
+              <button
                 className={activeTab === 'dashboard' ? 'nav-btn active' : 'nav-btn'}
                 onClick={() => setActiveTab('dashboard')}
               >
@@ -111,7 +107,7 @@ function App() {
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={activeTab === 'items' ? 'nav-btn active' : 'nav-btn'}
                 onClick={() => setActiveTab('items')}
               >
@@ -120,7 +116,7 @@ function App() {
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={activeTab === 'about' ? 'nav-btn active' : 'nav-btn'}
                 onClick={() => setActiveTab('about')}
               >
@@ -224,7 +220,7 @@ function App() {
                               Added: {new Date(item.createdAt).toLocaleDateString()}
                             </span>
                           </div>
-                          <button 
+                          <button
                             className="delete-btn"
                             onClick={() => deleteItem(item._id)}
                             aria-label="Delete item"
@@ -270,23 +266,23 @@ function App() {
                     <p>Deployed on AWS EKS with Application Load Balancer for ingress traffic.</p>
                   </div>
                 </div>
-                
+
                 <div className="developer-info">
-                  <h3>About the Developer</h3>
+                  <h3>About me</h3>
                   <div className="developer-card">
                     <div className="developer-content">
-                      <h4>Harish N Shetty</h4>
-                      <p>Full Stack Developer & DevOps Engineer</p>
+                      <h4>Akash Sheoran</h4>
+                      <p>DevOps Engineer</p>
                       <div className="developer-links">
-                        <a href="https://harishnshetty.github.io/" target="_blank" rel="noopener noreferrer">
+                        <a href="http://akashsheoran.in/" target="_blank" rel="noopener noreferrer">
                           <span className="link-icon">🌐</span>
                           Portfolio
                         </a>
-                        <a href="https://www.linkedin.com/in/harishnshetty" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/akash-sheoran/" target="_blank" rel="noopener noreferrer">
                           <span className="link-icon">💼</span>
                           LinkedIn
                         </a>
-                        <a href="https://github.com/harishnshetty" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/akash66sheoran" target="_blank" rel="noopener noreferrer">
                           <span className="link-icon">🐱</span>
                           GitHub
                         </a>
@@ -306,10 +302,10 @@ function App() {
           <div className="footer-content">
             <p>&copy; 2025-2026 Three-Tier Application. Built for AWS EKS.</p>
             <div className="footer-links">
-              <span>Developed by Harish N Shetty</span>
-              <a href="https://harishnshetty.github.io/" target="_blank" rel="noopener noreferrer">Portfolio</a>
-              <a href="https://www.linkedin.com/in/harishnshetty" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://github.com/harishnshetty" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <span>Developed by Akash Sheoran</span>
+              <a href="http://akashsheoran.in" target="_blank" rel="noopener noreferrer">Portfolio</a>
+              <a href="https://www.linkedin.com/in/akash-sheoran/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/akash66sheoran" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </div>
