@@ -39,6 +39,20 @@ stages:
               $(TAG)
               latest
 
+        - script: |
+            git clone https://github.com/akash66sheoran/ecom-gitops
+            cd /helm
+
+            sed -i '/frontend:/,/tag:/ s/tag:.*/tag: "'$(TAG)'"/' values.yaml
+
+            git config user.email "akash66sheoran@gmail.com"
+            git config user.name "akash66sheoran"
+
+            git add values.yaml
+            git commit -m "Update frontend image tag to $(TAG)"
+            git push
+          displayName: Update Frontend Helm values
+
   - stage: BuildBackend
     displayName: Build Backend image
     jobs:
@@ -70,3 +84,17 @@ stages:
             tags: |
               $(TAG)
               latest
+
+        - script: |
+            git clone https://github.com/akash66sheoran/ecom-gitops
+            cd /helm
+
+            sed -i '/backend:/,/tag:/ s/tag:.*/tag: "'$(TAG)'"/' values.yaml
+
+            git config user.email "akash66sheoran@gmail.com"
+            git config user.name "akash66sheoran"
+
+            git add values.yaml
+            git commit -m "Update backend image tag to $(TAG)"
+            git push
+          displayName: Update Backend Helm values
