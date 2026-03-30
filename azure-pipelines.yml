@@ -40,8 +40,11 @@ stages:
               latest
 
         - script: |
-            git clone https://github.com/akash66sheoran/ecom-gitops
-            cd /helm
+            git clone https://github.com/akash66sheoran/ecom-gitops.git
+            cd ecom-gitops
+            git checkout main
+
+            cd helm
 
             sed -i '/frontend:/,/tag:/ s/tag:.*/tag: "'$(TAG)'"/' values.yaml
 
@@ -50,7 +53,9 @@ stages:
 
             git add values.yaml
             git commit -m "Update frontend image tag to $(TAG)"
-            git push
+
+            git remote set-url origin https://$(ECOM-GITOPS-REPO-PAT)@github.com/akash66sheoran/ecom-gitops.git
+            git push origin main
           displayName: Update Frontend Helm values
 
   - stage: BuildBackend
@@ -86,8 +91,11 @@ stages:
               latest
 
         - script: |
-            git clone https://github.com/akash66sheoran/ecom-gitops
-            cd /helm
+            git clone https://github.com/akash66sheoran/ecom-gitops.git
+            cd ecom-gitops
+            git checkout main
+
+            cd helm
 
             sed -i '/backend:/,/tag:/ s/tag:.*/tag: "'$(TAG)'"/' values.yaml
 
@@ -96,5 +104,7 @@ stages:
 
             git add values.yaml
             git commit -m "Update backend image tag to $(TAG)"
-            git push
+
+            git remote set-url origin https://$(ECOM-GITOPS-REPO-PAT)@github.com/akash66sheoran/ecom-gitops.git
+            git push origin main
           displayName: Update Backend Helm values
